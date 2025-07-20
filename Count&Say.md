@@ -1,5 +1,6 @@
 # Count&Say
 
+## ITERATIVE 
 ```cpp
 class Solution {
 public:
@@ -30,6 +31,37 @@ public:
         return r ;
     }
 };
+```
+
+## RECURSIVE 
+```cpp
+string solve(int n ,const string& s) {
+        if (n == 1) return s ;
+        stringstream ss ;
+        int i = 0 ; int m = s.length();
+
+        while ( i < m ) {
+            if (i == m-1) {
+                ss << '1' ;
+                ss << s[i] ;
+                break ;
+            }
+            int c = 1 ;
+            while (i + 1 < m && s[i] == s[i+1]) {
+                c++ ; i++ ;
+            }
+            ss << (char)(c + '0') ;
+            ss << s[i] ;
+            i++ ;
+        }
+        // string f = ss.str();
+        return solve(n-1 , ss.str()) ;
+    }
+    string countAndSay(int n) {
+        if (n == 1) return "1" ;
+        
+        return solve(n , "1"  );
+    }
 ```
 
 # 🔍 Complexity Analysis
