@@ -5,12 +5,11 @@
 ```cpp
 class Solution {
 public:
-    #define ll long long
     int n ;
-    bool dfs(int cell , vector<vector<char>>& board, vector<ll>& row , vector<ll>& col, vector<ll>& box) {
+    bool dfs(int cell , vector<vector<char>>& board, vector<int>& row , vector<int>& col, vector<int>& box) {
         if (cell >= 81) return true ;
 
-        ll fullMask = (1<<9) - 1 ;
+        int fullMask = (1<<9) - 1 ;
         int j = cell%9 ; int i = (cell-j)/9 ;
         if (board[i][j] != '.') return dfs(cell + 1, board , row , col, box) ;
 
@@ -38,9 +37,9 @@ public:
     }
     void solveSudoku(vector<vector<char>>& board) {
         n = board.size();
-        vector<ll> row(n , 0);
-        vector<ll> col(n , 0);
-        vector<ll> box(n , 0); // [0-8]
+        vector<int> row(n , 0);
+        vector<int> col(n , 0);
+        vector<int> box(n , 0); // [0-8]
 
         for (int i = 0 ; i < n ; i++) {
             for (int j = 0 ; j < n ; j++) {
