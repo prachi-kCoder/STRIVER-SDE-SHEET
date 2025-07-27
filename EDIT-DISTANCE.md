@@ -91,6 +91,6 @@ int solve(int i , int j , int n , int m , string& word1 , string& word2, vector<
 
 | METRIC   | COMPLEXICITY  |    HOW ? |
 |-----------|-------------|------------|
-| 🧭 TIME  |    O(N*M)     |  Check all (i,j) pairs to match and get minOperation req , in worst non of the character matches hence all pair of character are tried|
+| 🧭 TIME  |    O(N*M)     | You recursively compare every pair of indices (i, j) from word1 and word2. At most, there are N*M unique subproblems due to memoization.|
 | 🧠 SPACE |     O(N*M)  |  dp TABLE           |
 
