@@ -32,8 +32,8 @@ public:
 };
 ```
 
-### BETTER WAY OF WRTING THIS COULD BE  {Assuming mat as flattened array }:
-```
+### BETTER WAY OF WRTING THIS COULD BE  {Assuming Matrix as flattened array }:
+```cpp
 bool searchMatrix(vector<vector<int>>& mat , int target) {
         int m = mat.size() ;
         int n = mat[0].size() ;
