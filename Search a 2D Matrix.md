@@ -58,5 +58,6 @@ bool searchMatrix(vector<vector<int>>& mat , int target) {
 
 🔁 Comparison Table :
 | Approach	| Time Complexity |	Space	 | Notes |
+|------------|-----------------|-----------|----------|
 | Flattened Binary Search	|O(log(m * n))	| O(1)	| Treats matrix as 1D |
 | Your Two-Level Search	| O(log m + log n)| O(1)	|More intuitive, row-first |
