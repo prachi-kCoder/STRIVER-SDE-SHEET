@@ -44,3 +44,48 @@ public:
 
 
 ```
+## min-stack approach - 2
+```cpp
+class MinStack {
+public:
+    stack<int> stk ;
+    stack<int> min_val_stk ;
+    MinStack() {
+        
+    }
+    
+    void push(int val) {
+        stk.push(val) ;
+        if (min_val_stk.empty() || min_val_stk.top() >= val) {
+            min_val_stk.push(val) ;
+        }
+    }
+    
+    void pop() {
+        int val = stk.top(); stk.pop();
+        if (min_val_stk.top() == val) {
+            min_val_stk.pop() ;
+        }
+    }
+    
+    int top() {
+        return stk.top();
+    }
+    
+    int getMin() {
+        return min_val_stk.top();
+    }
+};
+```
+
+- Here most crucial part is to push the new_val even if it matched the min_stk.top() is if its exacly = to min_ele found so far ,
+- Because min_elem freq is be = the totalocc of the min_ele , while poping out element from min_stack we need the same occurence of min_element !
+-  Min frequency tracking: If the current minimum appears multiple times, we need to track each occurrence so that getMin() remains valid until the last copy is popped.
+
+
+# 🔍COMPLEXICITY ANALYSIS
+
+| 📊 METRIC  | 📈 COMPLEXITY	  |  🧩 EXPLAINATION |
+|-----------|-------------|------------|
+| 🧭 TIME  |     O(1)     |Constant time operation to keep every operation efficient ! |
+| 🧠 SPACE |     O(N)     | Auxiliary stack/vector used to track minimums alongside the main stack.        |
